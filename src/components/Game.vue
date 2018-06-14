@@ -48,7 +48,7 @@ export default{
 };
 </script>
 
-<style scoped>
+<style>
 
 div#gameScreen>canvas{
   margin: auto;
