@@ -10,6 +10,8 @@ import 'p2';
 import Phaser from 'phaser';
 /* eslint-enable no-unused-vars */
 
+const grassPath = require('@/assets/images/environment/grass.png');
+
 export default{
   name: 'game',
   props: {
@@ -33,12 +35,16 @@ export default{
     }
   },
   methods: {
-    // preload () {
-    // },
-    // create (phaser) {
-    // },
-    // update (phaser) {
-    // },
+    preload(phaser) {
+      phaser.game.load.image('grass', grassPath);
+    },
+    create(phaser) {
+      const grass = phaser.game.add.tileSprite(0, 0, 800, 600, 'grass');
+      grass.fixedToCamera = true;
+    },
+    // eslint-disable-next-line
+    update(phaser) {
+    },
   },
   data() {
     return {
