@@ -17,8 +17,8 @@ export default {
     };
   },
   components: {
-    Game
-  }
+    Game,
+  },
 };
 </script>
 
