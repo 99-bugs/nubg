@@ -20,17 +20,23 @@ class Tank extends Phaser.Sprite {
     this.turret.anchor.setTo(0.5, 0.9);
     this.addChild(this.turret);
   }
-  static update() {
+  update() {
+    this.updateLabelPosition();
   }
   displayName(name) {
-    const text = new Phaser.Text(
+    this.label = new Phaser.Text(
       this.game,
       this.x,
-      this.y - this.height - TEXT_OFFSET,
+      this.y,
       name,
       { font: '24px Arial', fill: '#ffffff', align: 'center' });
-    text.anchor.set(0.5);
-    this.game.add.existing(text);
+    this.updateLabelPosition();
+    this.label.anchor.set(0.5);
+    this.game.add.existing(this.label);
+  }
+  updateLabelPosition() {
+    this.label.x = this.x;
+    this.label.y = this.y - this.height - TEXT_OFFSET;
   }
 }
 
