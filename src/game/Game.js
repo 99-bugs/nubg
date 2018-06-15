@@ -4,7 +4,7 @@ import Main from './states/Main';
 
 class Game extends Phaser.Game {
   constructor() {
-    super('100%', '100%', Phaser.AUTO, 'gameArea');
+    super(800, 600, Phaser.AUTO, 'gameArea');
     this.state.add('Main', Main, false);
 
     this.state.start('Main');

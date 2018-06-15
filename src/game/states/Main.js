@@ -13,7 +13,7 @@ class Main extends Phaser.State {
     this.game.load.image('turret', turretPath);
   }
   create() {
-    this.game.add.tileSprite(0, 0, 800, 600, 'grass');
+    this.game.add.tileSprite(0, 0, this.game.width, this.game.height, 'grass');
     this.fixedToCamera = true;
     this.tank = new Tank(this.game, 'test', 100, 100);
     this.game.add.existing(this.tank);
