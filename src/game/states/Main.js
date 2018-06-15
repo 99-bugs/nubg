@@ -15,11 +15,22 @@ class Main extends Phaser.State {
   create() {
     this.game.add.tileSprite(0, 0, this.game.width, this.game.height, 'grass');
     this.fixedToCamera = true;
-    this.tank = new Tank(this.game, 'test', 100, 100);
-    this.game.add.existing(this.tank);
+    this.createTanks();
   }
   update() {
-    this.tank.angle += 1;
+
+    this.tanks.forEach((tank) => {
+      tank.update();
+    });
+  }
+  createTanks() {
+    const tankNames = ['Sille', 'Nico', 'Diek', 'AtomCiLogic'];
+    this.tanks = [];
+    tankNames.forEach((name) => {
+      const tank = new Tank(this.game, name, this.game.world.randomX, this.game.world.randomY);
+      this.tanks.push(tank);
+      this.game.add.existing(tank);
+    });
   }
 }
 
