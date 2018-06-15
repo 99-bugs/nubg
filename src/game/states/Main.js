@@ -16,8 +16,22 @@ class Main extends Phaser.State {
     this.game.add.tileSprite(0, 0, this.game.width, this.game.height, 'grass');
     this.fixedToCamera = true;
     this.createTanks();
+    this.keys = this.game.input.keyboard.createCursorKeys();
   }
   update() {
+    if (this.keys.up.isDown) {
+      this.tanks[0].y -= 1;
+    }
+    if (this.keys.down.isDown) {
+      this.tanks[0].y += 1;
+    }
+    if (this.keys.left.isDown) {
+      this.tanks[0].x -= 1;
+    }
+    if (this.keys.right.isDown) {
+      this.tanks[0].x += 1;
+    }
+
 
     this.tanks.forEach((tank) => {
       tank.update();
