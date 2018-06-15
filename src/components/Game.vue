@@ -10,9 +10,7 @@ import 'p2';
 import Phaser from 'phaser';
 /* eslint-enable no-unused-vars */
 
-const grassPath = require('@/assets/images/environment/grass.png');
-const tankPath = require('@/assets/images/tanks/tankBlue.png');
-const turretPath = require('@/assets/images/tanks/barrelBlue.png');
+import Game from '@/game/Game';
 
 export default{
   name: 'game',
@@ -21,45 +19,11 @@ export default{
     height: Number,
   },
   mounted() {
-    const self = this;
     if (this.game == null) {
-      this.game = new Phaser.Game(this.width, this.height, Phaser.AUTO, this.$el, {
-        preload: function preload() {
-          self.preload(this);
-        },
-        create: function create() {
-          self.create(this);
-        },
-        update: function update() {
-          self.update(this);
-        },
-      });
+      this.game = new Game();
     }
   },
-  methods: {
-    preload(phaser) {
-      phaser.game.load.image('grass', grassPath);
-      phaser.game.load.image('tank', tankPath);
-      phaser.game.load.image('turret', turretPath);
-    },
-    create(phaser) {
-      const grass = phaser.game.add.tileSprite(0, 0, 800, 600, 'grass');
-      grass.fixedToCamera = true;
-
-      const tank = phaser.game.add.sprite(0, 0, 'tank');
-      tank.anchor.setTo(0.5, 0.5);
-      tank.x = 300;
-      tank.y = 300;
-
-      const turret = phaser.game.add.sprite(0, 0, 'turret');
-      turret.anchor.setTo(0.5, 0.9);
-      turret.x = tank.x;
-      turret.y = tank.y;
-    },
-    // eslint-disable-next-line
-    update(phaser) {
-    },
-  },
+  methods: { },
   data() {
     return {
       game: null,
