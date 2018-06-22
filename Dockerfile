@@ -21,6 +21,6 @@ RUN npm run build
 # start command
 # CMD [ "npm", "start" ]
 
-FROM nginx:latest  
+FROM nginx:alpine  
 WORKDIR /usr/share/nginx/html
 COPY --from=0 /usr/src/app/dist .
