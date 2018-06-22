@@ -15,8 +15,12 @@ COPY . .
 # Build app
 RUN npm run build
 
-ENV HOST 0.0.0.0
-EXPOSE 3000
+# ENV HOST 0.0.0.0
+# EXPOSE 3000
 
 # start command
-CMD [ "npm", "start" ]
+# CMD [ "npm", "start" ]
+
+FROM nginx:latest  
+WORKDIR /usr/share/nginx/html
+COPY --from=0 /usr/src/app/dist .
