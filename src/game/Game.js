@@ -4,9 +4,13 @@ import Main from './states/Main';
 
 class Game extends Phaser.Game {
   constructor() {
-    super(800, 600, Phaser.AUTO, 'gameArea');
+    super({
+      render: Phaser.AUTO,
+      parent: 'gameScreen',
+      width: '100',
+      height: '100',
+    });
     this.state.add('Main', Main, false);
-
     this.state.start('Main');
   }
 }

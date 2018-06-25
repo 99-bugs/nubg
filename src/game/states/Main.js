@@ -13,6 +13,7 @@ class Main extends Phaser.State {
     this.game.load.image('turret', turretPath);
   }
   create() {
+    this.game.scale.scaleMode = Phaser.ScaleManager.RESIZE;
     this.game.add.tileSprite(0, 0, this.game.width, this.game.height, 'grass');
     this.fixedToCamera = true;
     this.createTanks();

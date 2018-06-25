@@ -34,7 +34,8 @@ export default{
 
 <style>
 
-div#gameScreen>canvas{
-  margin: auto;
+div#gameScreen{
+  width: 100%;
+  height: 100%;
 }
 </style>
