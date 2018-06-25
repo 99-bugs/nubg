@@ -115,7 +115,7 @@ export default {
   data() {
     return {
       msg: 'NUBG - Not a Universal Battle Ground',
-      drawer: true,
+      drawer: null,
       items: [
         { icon: 'contacts', text: 'Contacts' },
         { icon: 'history', text: 'Frequently contacted' },
