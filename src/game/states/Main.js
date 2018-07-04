@@ -21,16 +21,16 @@ class Main extends Phaser.State {
   }
   update() {
     if (this.keys.up.isDown) {
-      this.tanks[0].y -= 1;
+      this.tanks[0].forward();
     }
     if (this.keys.down.isDown) {
-      this.tanks[0].y += 1;
+      // do nothing, thanks don't drive backwards
     }
     if (this.keys.left.isDown) {
-      this.tanks[0].x -= 1;
+      this.tanks[0].turnLeft();
     }
     if (this.keys.right.isDown) {
-      this.tanks[0].x += 1;
+      this.tanks[0].turnRight();
     }
 
 
