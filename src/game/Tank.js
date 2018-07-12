@@ -28,13 +28,19 @@ class Tank extends Phaser.Sprite {
     // this.turret.angle = 90;
     this.addChild(this.turret);
   }
-  update() {
-    this.updateLabelPosition();
-    if (this.speed > 0) {
-      this.speed -= 4;
-    }
-    if (this.speed > 0) {
-      this.game.physics.arcade.velocityFromAngle(this.angle - 90 , this.speed, this.body.velocity);
+  update(state) {
+    if (state) {
+      this.x = state.location.x;
+      this.y = state.location.y;
+      this.angle = state.direction;
+    } else {
+      this.updateLabelPosition();
+      if (this.speed > 0) {
+        this.speed -= 4;
+      }
+      if (this.speed > 0) {
+        this.game.physics.arcade.velocityFromAngle(this.angle - 90, this.speed, this.body.velocity);
+      }
     }
   }
   displayName(name) {
