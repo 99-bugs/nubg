@@ -48,6 +48,11 @@ class Main extends Phaser.State {
       });
     }
 
+    const graphics = this.game.add.graphics(0, 0);
+
+    graphics.lineStyle(2, 0x0000FF, 1);
+    graphics.drawRect(0, 0, 1000, 500);
+
     // if (this.keys.up.isDown) {
     //   this.tanks[0].forward();
     // }
